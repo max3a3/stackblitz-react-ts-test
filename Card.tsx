@@ -16,5 +16,5 @@ export default function Card({ result }) {
         </p>
       </div>
     </div>
-  );
+  ); 
 }
