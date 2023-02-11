@@ -7,7 +7,6 @@ import { createRoot } from 'react-dom/client';
 // import App from './ModalTest';
 import App from './insta/InstaTest';
 
-
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
