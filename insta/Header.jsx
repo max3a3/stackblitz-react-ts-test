@@ -1,4 +1,10 @@
 import * as React from 'react';
+import {
+  HomeIcon,
+  UserIcon,
+  SearchIcon,
+  InformationCircleIcon,
+} from '@heroicons/react/solid';
 
 function InstaGraphic() {
   return (
@@ -18,11 +24,25 @@ function InstaGraphic() {
     </React.Fragment>
   );
 }
+function SearchBarMiddle() {
+  return (
+    <div>
+      <SearchIcon className="h-5 text-gray-500" />
+      <input
+        type="text"
+        placeholder="Search"
+        className="bg-gray-50 pl-10 border-gray-500 text-sm focus:ring-black focus:border-black rounded-md"
+      />
+    </div>
+  );
+}
 export default function Header() {
   return (
     <div className="flex items-center justify-between">
       <InstaGraphic />
-      <div>center</div>
+      <div>
+        <SearchBarMiddle />
+      </div>
       <div>right</div>
     </div>
   );
