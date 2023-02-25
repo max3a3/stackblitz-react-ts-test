@@ -3,7 +3,7 @@ import {
   HomeIcon,
   UserIcon,
   SearchIcon,
-  InformationCircleIcon,
+  PlusCircleIcon,
 } from '@heroicons/react/solid';
 
 function InstaGraphic() {
@@ -28,7 +28,7 @@ function SearchBarMiddle() {
   return (
     <div className="relative mt-1">
       <div className="absolute top-2 left-2">
-      <SearchIcon className="h-5 text-gray-500" />
+        <SearchIcon className="h-5 text-gray-500" />
       </div>
       <input
         type="text"
@@ -38,14 +38,41 @@ function SearchBarMiddle() {
     </div>
   );
 }
-export default function Header() {
+function CurrentUser({ currentUser }) {
+  const userImg =
+    'https://us-east-1.linodeobjects.com/kinopio-uploads/ALsQ92JFiAqwpiz0Fnovf/a-malamute-husky-looking-at-you-in-a-gra-6rZ.jpg';
   return (
-    <div className="flex items-center justify-between">
-      <InstaGraphic />
-      <div>
+    <div className="flex">
+      <PlusCircleIcon className="h-6 cursor-pointer hover:scale-125 transition-tranform duration-200 ease-out" />
+      <img
+        src={userImg}
+        alt="user-image"
+        className="h-10 rounded-full cursor-pointer"
+      />
+    </div>
+  );
+}
+function HeaderRight({ currentUser }) {
+  return (
+    <div className="flex">
+      <HomeIcon className="h-5" />
+      {currentUser && <CurrentUser currentUser={currentUser} />}
+    </div>
+  );
+}
+export default function Header() {
+  let [currentUser, setCurrentUser] = React.useState(true);
+  return (
+    <div>
+      <div className="flex items-center justify-between">
+        <InstaGraphic />
         <SearchBarMiddle />
+        <HeaderRight currentUser={currentUser} />
       </div>
-      <div>right</div>
+
+      <div>
+        <button onClick={() => setCurrentUser((s) => !s)}>[login]</button>
+      </div>
     </div>
   );
 }
